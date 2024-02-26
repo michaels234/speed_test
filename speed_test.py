@@ -65,7 +65,7 @@ a = run(func=compare_array_append_1, rounds=1000)  # a += [i]
 b = run(func=compare_array_append_2, rounds=1000)  # a.append(i)
 times_faster = round(a/b, 1)
 print(f"\n'a.append(i)' is {times_faster}x faster than 'a += [i]'. usually 1.6x ~ 2.0x faster\n")
-# result: 1.6x ~ 2.0x faster
+
 
 arr = [i for i in range(10000)]
 c = run(func=compare_enumerate_1, rounds=1000, args=arr)  # for i, el in enumerate(l)
@@ -78,6 +78,7 @@ times_faster = round(((c + d) / 2) / f, 1)
 print(f"'for i in range(n)' is fastest, just slightly, at {times_faster}x faster than the previous two. usually 1.1x ~ 1.3x faster")
 times_faster = round(e/f, 1)
 print(f"and 'while i <= n - 1' is the slowest, where 'for i in range(n)' is {times_faster}x faster than it. usually 1.5x ~ 2.0x faster\n")
+
 
 g = run(func=compare_for_loop_1, rounds=1000, args=arr)  # for i in range(n)
 h = run(func=compare_for_loop_2, rounds=1000, args=arr)  # for el in l
